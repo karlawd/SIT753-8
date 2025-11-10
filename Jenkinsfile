@@ -3,6 +3,14 @@ agent any
       tools {
         nodejs 'NodeJS_25'
     }
+          stages {
+        stage('Check Node Versions') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
+    }
 stages {
 stage('Checkout') {
 steps {
