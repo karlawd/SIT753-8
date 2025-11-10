@@ -1,30 +1,31 @@
 pipeline {
 agent any
 stages {
+  #!/bin/bash
 stage('Checkout') {
 steps {
 git branch: 'main', url: 'https://github.com/karlawd/SIT753-8.git'
 }
 }
-stage('Install Dependencies') {
+  stage('Install Dependencies') {
 steps {
-sudo 'npm install'
+sh 'npm install'
 }
 }
 stage('Run Tests') {
 steps {
-sudo 'npm test || true' // Allows pipeline to continue despite test failures
+sh 'npm test || true' // Allows pipeline to continue despite test failures
 }
 }
 stage('Generate Coverage Report') {
 steps {
 // Ensure coverage report exists
-sudo 'npm run coverage || true'
+sh 'npm run coverage || true'
 }
 }
 stage('NPM Audit (Security Scan)') {
 steps {
-sudo 'npm audit || true' // This will show known CVEs in the output
+sh 'npm audit || true' // This will show known CVEs in the output
 }
 }
 }
