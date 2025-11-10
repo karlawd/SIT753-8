@@ -3,7 +3,7 @@ agent any
 stages {
 stage('Checkout') {
 steps {
-git branch: 'main', url: 'https://github.com/karlawd/SIT753-8.git'
+git url: 'https://github.com/karlawd/SIT753-8.git'
 }
 }
   stage('Install Dependencies') {
