@@ -1,7 +1,6 @@
 pipeline {
 agent any
 stages {
-  #!/bin/bash
 stage('Checkout') {
 steps {
 git branch: 'main', url: 'https://github.com/karlawd/SIT753-8.git'
